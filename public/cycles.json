@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Mountain Bike",
+        "cost": "5,000",
+        "info": "A mountain bike is specially designed for traveling off-road and hill climbing. Using your mountain bike on the road is fine and is no issue at all. But make sure you do it safely and think about the following points",
+        "img": "https://i.ibb.co/fnG64Cj/maxresdefault.jpg"
+    },
+    {
+        "name": "Electric Bike",
+        "cost": "1,000",
+        "info": "How fast can an electric bike go? If you are pedaling, you can go as fast as you are able to pedal it.",
+        "img": "https://i.ibb.co/5GN6k00/folding-fat-tire-electric-bike-silver-1.jpg"
+    },
+    {
+        "name": "Racing Bike",
+        "cost": "50,000",
+        "info": "What is a racing bicycle called? Image result for racing bicycle road bike A racing bicycle, also known as a road bike, and once popularly known as a ten speed, is a bicycle designed for competitive road cycling",
+        "img": "https://i.ibb.co/tLkMt5P/cycle-wall-decor.jpg"
+    },
+    {
+        "name": "Normal Bike",
+        "cost": "3,000",
+        "info": "A bicycle, also called a bike or cycle, is a human-powered or motor-powered, pedal-driven, single-track vehicle, having two wheels attached to a frame.",
+        "img": "https://i.ibb.co/m4CP12n/bmw-power-x-cycle-500x500.jpg"
+    },
+    {
+        "name": "Fat Bike",
+        "cost": "6,000",
+        "info": "The primary benefit of a fat bike is that they're able to travel over diverse terrain, from snow to sand, better than regular bicycles. The wide tyres provide you with extra grip and tractionover terrain that'd make conventional tyres sink.",
+        "img": "https://i.ibb.co/X7wYWT5/71-W4-A-gh-UUL-SX679.jpg"
+    },
+    {
+        "name": "Folding Bike",
+        "cost": "500",
+        "info": "A folding bike is a great choice, especially for commuters or those with limited space. They offer loads of perks to riders and attract attention for all the right reasons.",
+        "img": "https://i.ibb.co/w6T3X1Z/shutterstock-1620588961.jpg"
+    }
+]
