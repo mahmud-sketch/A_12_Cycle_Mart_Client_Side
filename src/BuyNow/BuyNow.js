@@ -24,6 +24,7 @@ function BuyNow() {
         const cost = cycle.cost;
         const info = cycle.info;
         const img = cycle.img;
+        const productId = id.id;
 
         const name = user.displayName;
         const email = user.email
@@ -31,7 +32,7 @@ function BuyNow() {
         const paymentMethod = paymentMethodRef.current.value;
         const status = "pending";
 
-        const order = { cycleName, cost, info, img, name, email, address, paymentMethod, status };
+        const order = { cycleName, productId, cost, info, img, name, email, address, paymentMethod, status };
 
         fetch('http://localhost:5000/orders', {
             method: 'post',
@@ -59,6 +60,7 @@ function BuyNow() {
                     <h2>name:{cycle?.name}</h2>
                     <h3>cost:{cycle?.cost}</h3>
                     <p>info:{cycle?.info}</p>
+                    <p>productId:{id.id}</p>
                     <img src={cycle?.img} alt="cycle" />
                 </div>
                 <div>

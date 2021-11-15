@@ -13,6 +13,7 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Dashboard from './Dashboard/Dashboard';
 import Riviews from './Riviews/Riviews';
+import SubmitReview from './SubmitReview/SubmitReview';
 // import MyRides from './MyRides/MyRides';
 // import ManageAllRides from './ManageAllRides/ManageAllRides';
 // import AddNewRide from './AddNewRide/AddNewRide';
@@ -37,17 +38,20 @@ function App() {
             <PrivateRoute path='/buynow/:id'>
               <BuyNow></BuyNow>
             </PrivateRoute>
-            <PrivateRoute path='/buynow'>
+            {/* <PrivateRoute path='/buynow'>
               <BuyNow></BuyNow>
-            </PrivateRoute>
-            <PrivateRoute path='/riviews'>
+            </PrivateRoute> */}
+            <Route path='/riviews'>
               <Riviews></Riviews>
-            </PrivateRoute>
+            </Route>
             <Route path='/login'>
               <Login></Login>
             </Route>
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path='/submitreview/:id'>
+              <SubmitReview></SubmitReview>
             </PrivateRoute>
             <Route path='/registration'>
               <Registration></Registration>
