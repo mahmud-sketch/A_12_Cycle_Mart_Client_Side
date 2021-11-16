@@ -14,6 +14,9 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Dashboard from './Dashboard/Dashboard';
 import Riviews from './Riviews/Riviews';
 import SubmitReview from './SubmitReview/SubmitReview';
+import Pay from './Pay/Pay';
+import MyOrders from './MyOrders/MyOrders';
+import WriteReview from './WriteReview/WriteReview';
 // import MyRides from './MyRides/MyRides';
 // import ManageAllRides from './ManageAllRides/ManageAllRides';
 // import AddNewRide from './AddNewRide/AddNewRide';
@@ -50,6 +53,15 @@ function App() {
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
             </PrivateRoute>
+            {/* <PrivateRoute path='/pay'>
+              <Pay></Pay>
+            </PrivateRoute>
+            <PrivateRoute path='/myorders'>
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute path='/writereview'>
+              <WriteReview></WriteReview>
+            </PrivateRoute> */}
             <PrivateRoute path='/submitreview/:id'>
               <SubmitReview></SubmitReview>
             </PrivateRoute>

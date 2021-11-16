@@ -1,10 +1,13 @@
-import React from 'react'
+import { TextField } from '@mui/material';
+import React, { useState } from 'react'
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 function Login() {
-    const { signInUsingGoogle, setIsLoading, errMessage } = useAuth();
+    const { signInUsingGoogle, setIsLoading, errMessage, processLogin, loginErrMsg, loginSucMsg } = useAuth();
     // console.log(useAuth());
+
+    const [loginData, setLoginData] = useState({});
 
     const location = useLocation();
     const history = useHistory();
@@ -24,15 +27,44 @@ function Login() {
             })).finally(() => { setIsLoading(false) })
     }
 
+    const handleOnChange = e => {
+
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData }
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+        console.log(loginData)
+
+    }
+
+
+    const handleLoginSubmit = e => {
+
+        processLogin(loginData.email, loginData.password, location, history);
+        e.preventDefault();
+    }
+
     return (
         <div>
             <h2>Please Login</h2>
             {
-                <p>{errMessage}</p>
+                <p>{loginErrMsg}</p>
             }
+            {
+                <p>{loginSucMsg}</p>
+            }
+
             <br /><br />
-            <button onClick={handleGoogleLogin} className="bg-indigo-900 text-white active:bg-purple-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                type="button">Google Sign In</button>
+            <form onSubmit={handleLoginSubmit}>
+                <TextField id="outlined-basic" onChange={handleOnChange} name="email" label="Email" variant="outlined" /><br />
+                <TextField id="outlined-basic" onChange={handleOnChange} name="password" label="password" variant="outlined" /><br />
+                <button type="submit">login</button><br /><br />
+                <p>-------------------</p>
+
+
+            </form>
+            <button onClick={handleGoogleLogin} type="button">Google Sign In</button>
             <br />
             <hr />
             <Link to="/registration">New User?Click to Register page</Link>

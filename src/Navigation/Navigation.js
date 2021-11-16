@@ -13,7 +13,7 @@ function Navigation() {
     const { user, logout } = useAuth();
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" color="primary">
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -25,7 +25,7 @@ function Navigation() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        <Button color="inherit"><Link to='/cycles' >Explore Cycles</Link></Button>
+                        <Button><Link to='/cycles'>Explore Cycles</Link></Button>
                     </Typography>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         {
