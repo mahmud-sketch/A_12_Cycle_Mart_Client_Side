@@ -24,8 +24,12 @@ function Navigation() {
                     >
                         <MenuIcon />
                     </IconButton>
+
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <Button><Link to='/cycles'>Explore Cycles</Link></Button>
+                    </Typography>
+                    <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+                        CYCLE-MART
                     </Typography>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         {

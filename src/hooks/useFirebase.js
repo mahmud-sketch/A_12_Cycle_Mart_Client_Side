@@ -22,13 +22,18 @@ function useFirebase() {
         return signInWithPopup(auth, googleProvider);
     }
 
-    const registerUsingMailandPassword = (name, email, password) => {
+    const registerUsingMailandPassword = (name, email, password, history) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                setUser(result.user);
-                console.log(result.user);
+                // setUser(result.user);
+                setUser({ email, displayName: name });
+                // console.log(result.user);
                 setUserName(name);
+                saveUser(email, name, 'POST');
+                updateProfile(auth.currentUser, { displayName: name })
+                    .then(res => { })
                 setErrMessage('Congratulations!!! Registraton successful.please click bolew link to go to log in page');
+                history.replace('/');
             }).catch((err => {
                 setErrMessage(err.message);
             }))
@@ -64,6 +69,18 @@ function useFirebase() {
         }).catch((error) => {
             // An error happened.
         }).finally(() => setIsLoading(false));
+    }
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
 
     useEffect(() => {

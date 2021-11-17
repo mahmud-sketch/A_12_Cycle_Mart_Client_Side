@@ -32,8 +32,9 @@ function Registration() {
             e.preventDefault();
             return
         }
-        registerUsingMailandPassword(registerData.name, registerData.email, registerData.password);
+        registerUsingMailandPassword(registerData.name, registerData.email, registerData.password, history);
         // setUserName(registerData.name);
+        // history.push(redirect_uri);
         e.preventDefault();
     }
 
@@ -42,12 +43,25 @@ function Registration() {
         signInUsingGoogle()
             .then((result) => {
                 // console.log(result);
+                saveUser(result.user.email, result.user.displayName, 'PUT');
                 history.push(redirect_uri);
                 // setUser(result.user);
                 console.log(result.user);
             }).catch((err => {
                 // setError(err.message);
             })).finally(() => { setIsLoading(false) })
+    }
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
 
     return (

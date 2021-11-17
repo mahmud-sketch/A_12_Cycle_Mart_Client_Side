@@ -6,7 +6,12 @@ import useAuth from '../hooks/useAuth'
 function PrivateRoute({ children, ...rest }) {
     const { user, isLoading } = useAuth();
     if (isLoading) {
-        return <LinearProgress color="secondary" />
+        return <>
+            <LinearProgress color="secondary" />
+            <LinearProgress color="secondary" />
+            <LinearProgress color="secondary" />
+            <LinearProgress color="secondary" />
+        </>
     }
 
     return (
