@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './Cycle.css';
 
-function Policy(props) {
+function Cycle(props) {
     const { _id, name, cost, info, img } = props.cycle;
     return (
         <div className="card">
@@ -16,4 +16,4 @@ function Policy(props) {
     )
 }
 
-export default Policy
+export default Cycle

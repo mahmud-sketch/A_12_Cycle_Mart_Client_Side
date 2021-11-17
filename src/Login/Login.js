@@ -60,6 +60,7 @@ function Login() {
 
     return (
         <div>
+            <Link to='/home'>Home</Link><br />
             <h2>Please Login</h2>
             {
                 <p>{loginErrMsg}</p>

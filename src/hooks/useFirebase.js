@@ -11,6 +11,7 @@ function useFirebase() {
     const [loginErrMsg, setLoginErrMsg] = useState('');
     const [loginSucMsg, setLoginSucMsg] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
 
 
@@ -95,8 +96,15 @@ function useFirebase() {
         });
         return () => unsubscribed;
     }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
     return {
         user,
+        admin,
         // error,
         signInUsingGoogle,
         logout,

@@ -6,15 +6,15 @@ function MyOrders() {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`http://localhost:5000/orders/user?email=${user.email}`)
             .then(res => res.json())
-            .then(data => { setOrders(data) });
+            .then(data => { setOrders(data); console.log(data); });
     }, [])
 
     const deleteOrder = (id) => {
         const proceed = window.confirm('do you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `http://localhost:5000/orders/user/${id}`
             fetch(url, {
                 method: 'delete'
             })
@@ -22,7 +22,7 @@ function MyOrders() {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert('deleted successfully!');
-                        fetch(`http://localhost:5000/orders?email=${user.email}`)
+                        fetch(`http://localhost:5000/orders/user?email=${user.email}`)
                             .then(res => res.json())
                             .then(data => { setOrders(data) });
                         // const remaingOrders = 

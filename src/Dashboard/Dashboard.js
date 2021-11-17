@@ -28,33 +28,20 @@ import {
 } from "react-router-dom";
 import { Button } from '@mui/material';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import useAuth from '../hooks/useAuth';
+import AdminRoute from '../AdminRoute/AdminRoute';
+import ManageOrders from '../ManageOrders/ManageOrders';
+import AddProducts from '../AddProducts/AddProducts';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 240;
 
-// function Dashboard() {
-//     return (
-//         <div>
-//             {/* <Pay></Pay>
-//             <MyOrders></MyOrders>
-//             <WriteReview></WriteReview> */}
-
-
-//         </div>
-//     )
-// }
-
-// export default Dashboard
-
-
-
-
-
-
-
 
 function Dashboard(props) {
+    const { user, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { admin } = useAuth();
 
     let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
@@ -65,21 +52,28 @@ function Dashboard(props) {
         <div>
             <Toolbar />
 
-            <Link to={`${url}/pay`}><Button>Pay</Button></Link><br />
-            <Link to={`${url}/myorders`}><Button>My Orders</Button></Link><br />
-            <Link to={`${url}/writereview`}><Button>Write Review</Button></Link><br />
-            <Link to={`${url}/makeadmin`}><Button>makeadmin</Button></Link><br />
+            {
+                !admin && <Box>
+                    <Link to={`${url}/pay`}><Button>Pay</Button></Link><br />
+                    <Link to={`${url}/myorders`}><Button>My Orders</Button></Link><br />
+                    <Link to={`${url}/writereview`}><Button>Write Review</Button></Link><br />
 
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        {/* <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon> */}
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+                </Box>
+            }
+
+            {
+                admin && <Box>
+
+                    <Link to={`${url}/manageAllOrders`}><Button>Manage All Orders</Button></Link><br />
+                    <Link to={`${url}/AddProducts`}><Button>Add a Product</Button></Link><br />
+                    <Link to={`${url}/makeadmin`}><Button>makeadmin</Button></Link><br />
+                    <Link to={`${url}/manageProducts`}><Button>Manage Products</Button></Link><br />
+                </Box>
+            }
+
+            <Button onClick={logout}>Log OUT</Button><br />
+
+
         </div>
     );
 
@@ -105,8 +99,11 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
+                    <Typography variant="h6" noWrap component="div" sx={{ mx: 3 }}>
+                        DashBoard
+                    </Typography>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        <Link to='/home'>Home</Link><br />
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -160,12 +157,21 @@ function Dashboard(props) {
                     <Route path={`${path}/writereview`}>
                         <WriteReview></WriteReview>
                     </Route>
-                    <Route path={`${path}/makeadmin`}>
+                    <AdminRoute path={`${path}/manageAllOrders`}>
+                        <ManageOrders></ManageOrders>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/AddProducts`}>
+                        <AddProducts></AddProducts>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/makeadmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
                 </Switch>
             </Box>
-        </Box>
+        </Box >
     );
 }
 

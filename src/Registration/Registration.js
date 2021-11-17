@@ -66,6 +66,7 @@ function Registration() {
 
     return (
         <div>
+            <Link to='/home'>Home</Link><br />
             <h2>Registration</h2>
             {
                 <p>{errMessage}</p>

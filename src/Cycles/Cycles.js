@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Cycle from './Cycle';
 
 function Cycles() {
@@ -10,6 +11,7 @@ function Cycles() {
     }, [])
     return (
         <div>
+            <Link to='/home'>Home</Link><br />
             <h2>cycles</h2>
             <div className="grid">
                 {
