@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 function ManageProducts() {
     const [cycles, setCycles] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allcycles')
+        fetch('https://immense-bayou-54885.herokuapp.com/allcycles')
             .then(res => res.json())
             .then(data => { setCycles(data); console.log(data); });
     }, [])
@@ -12,7 +12,7 @@ function ManageProducts() {
     const deleteProduct = (id) => {
         const proceed = window.confirm('do you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/allcycles/${id}`
+            const url = `https://immense-bayou-54885.herokuapp.com/allcycles/${id}`
             fetch(url, {
                 method: 'delete'
             })
@@ -20,7 +20,7 @@ function ManageProducts() {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert('deleted successfully!');
-                        fetch(`http://localhost:5000/allcycles`)
+                        fetch(`https://immense-bayou-54885.herokuapp.com/allcycles`)
                             .then(res => res.json())
                             .then(data => { setCycles(data) });
                         // const remaingOrders = 

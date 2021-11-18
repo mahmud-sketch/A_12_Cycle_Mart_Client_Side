@@ -5,8 +5,8 @@ import './footer.css'
 function Footer() {
     return (
         <div className="footer">
-            <h1>Book a ride for pleasure</h1>
-            <p>to know details plese visit the our rides section</p>
+            <h1>Buy a cycle and ride it for pleasure</h1>
+            <p>to know details plese visit the our explore section</p>
 
         </div>
     )

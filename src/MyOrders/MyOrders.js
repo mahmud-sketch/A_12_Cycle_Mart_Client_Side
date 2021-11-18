@@ -6,7 +6,7 @@ function MyOrders() {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/user?email=${user.email}`)
+        fetch(`https://immense-bayou-54885.herokuapp.com/orders/user?email=${user.email}`)
             .then(res => res.json())
             .then(data => { setOrders(data); console.log(data); });
     }, [])
@@ -14,7 +14,7 @@ function MyOrders() {
     const deleteOrder = (id) => {
         const proceed = window.confirm('do you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/user/${id}`
+            const url = `https://immense-bayou-54885.herokuapp.com/orders/user/${id}`
             fetch(url, {
                 method: 'delete'
             })
@@ -22,7 +22,7 @@ function MyOrders() {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert('deleted successfully!');
-                        fetch(`http://localhost:5000/orders/user?email=${user.email}`)
+                        fetch(`https://immense-bayou-54885.herokuapp.com/orders/user?email=${user.email}`)
                             .then(res => res.json())
                             .then(data => { setOrders(data) });
                         // const remaingOrders = 

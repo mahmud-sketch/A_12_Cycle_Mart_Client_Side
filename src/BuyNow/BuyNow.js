@@ -10,7 +10,7 @@ function BuyNow() {
     const addressRef = useRef();
     const paymentMethodRef = useRef();
 
-    const url = `http://localhost:5000/allcycles/${id.id}`;
+    const url = `https://immense-bayou-54885.herokuapp.com/allcycles/${id.id}`;
 
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function BuyNow() {
 
         const order = { cycleName, productId, cost, info, img, name, email, address, paymentMethod, status };
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://immense-bayou-54885.herokuapp.com/orders', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

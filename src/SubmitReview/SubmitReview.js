@@ -9,7 +9,7 @@ function SubmitReview() {
 
     const reviewRef = useRef();
 
-    const url = `http://localhost:5000/allcycles/${id.id}`;
+    const url = `https://immense-bayou-54885.herokuapp.com/allcycles/${id.id}`;
 
     useEffect(() => {
         fetch(url)
@@ -34,7 +34,7 @@ function SubmitReview() {
 
         const saveReview = { cycleName, productId, cost, img, name, email, review, rating };
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://immense-bayou-54885.herokuapp.com/reviews', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

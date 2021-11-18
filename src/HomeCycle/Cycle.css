@@ -1,0 +1,21 @@
+h3, h4, h5{
+    text-align: center;
+    /* font-size: large; */
+    font-weight: 600;
+
+}
+
+.middle{
+    margin-left: 110px;
+    margin-top: 15px;
+}
+
+.card{
+    width:400px;
+    border: 2px solid rgb(15, 11, 29);
+    border-radius: 5px;
+    background-color: rgb(247, 239, 252);
+    padding: 10px;
+    margin: auto;
+    text-align: justify;
+}

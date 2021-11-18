@@ -15,7 +15,7 @@ function AddProducts() {
 
         const ride = { name, cost, info, img };
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://immense-bayou-54885.herokuapp.com/products', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

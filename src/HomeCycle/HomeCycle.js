@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Cycle from './Cycle';
 
-function Cycles() {
+function HomeCycle() {
     const [cycles, setCycles] = useState([])
     useEffect(() => {
         fetch('https://immense-bayou-54885.herokuapp.com/allcycles')
             .then(res => res.json())
-            .then(data => { setCycles(data); console.log(data); });
+            .then(data => { setCycles(data.slice(0, 6)); console.log(data); });
     }, [])
     return (
         <div>
@@ -25,4 +25,4 @@ function Cycles() {
     )
 }
 
-export default Cycles
+export default HomeCycle

@@ -71,7 +71,7 @@ function Dashboard(props) {
                 </Box>
             }
 
-            <Button onClick={logout}>Log OUT</Button><br />
+            <Link to="/home"><Button onClick={logout}>Log OUT</Button><br /></Link>
 
 
         </div>

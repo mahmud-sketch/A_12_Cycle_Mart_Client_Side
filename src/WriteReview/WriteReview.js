@@ -7,7 +7,7 @@ function WriteReview() {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://immense-bayou-54885.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => { setOrders(data) });
     }, [])
